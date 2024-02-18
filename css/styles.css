@@ -1,3 +1,11 @@
+:root {
+    --clr-dark: #142941;
+    --clr-primary: #fb1241;
+    --clr-secondary: #d7882a;
+    --clr-accent: #fe7835;
+    --clr-lightgray: #ccc;
+}
+
 * {
     font-family: "General Sans", system-ui, -apple-system, BlinkMacSystemFont,
         "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
@@ -23,10 +31,6 @@
     justify-content: center;
 }
 
-.container-right {
-    flex: 1;
-}
-
 .logo-container {
     height: 240px;
     /* background: rgb(10 10 10 / 30%); */
@@ -45,5 +49,108 @@
     & > img {
         /* transform: translateY(-5px); */
         height: 250px;
+    }
+}
+
+.container-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+
+    & > * {
+        padding-left: 4rem;
+        padding-bottom: 4rem;
+    }
+
+    & .form-header {
+        flex: 1;
+        background-color: #fcfcfc;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        /* padding: auto 2rem; */
+
+        & .form-header__text {
+            font-size: 1.5rem;
+            font-weight: 300;
+            letter-spacing: 0.02em;
+            line-height: 2rem;
+            color: var(--clr-dark);
+            padding-top: 100px;
+            margin-right: max(80px, 10vw);
+            /* align-items: flex-end; */
+
+            & > :last-child {
+                margin-top: 20px;
+                /* font-weight: 400; */
+            }
+        }
+    }
+
+    & .form-body {
+        padding-top: 2rem;
+        flex: 2;
+
+        .form-row + .form-row {
+            margin-top: 2rem;
+        }
+
+        label {
+            position: relative;
+        }
+    }
+}
+
+.emphasize {
+    color: var(--clr-primary);
+    font-weight: 500;
+}
+
+.arrow-link {
+    margin-right: 10px;
+}
+
+.arrow-link::after {
+    content: "\f061";
+    font-family: "Font Awesome 5 Free";
+    display: inline-block;
+    font-weight: 900;
+    transform: rotate(-45deg);
+}
+
+label[for="first_name"]::after,
+label[for="email"]::after,
+label[for="password"]::after,
+label[for="confirm_password"]::after {
+    position: absolute;
+    content: "\2a";
+    transform: translateX(5px);
+    font-family: "Font Awesome 5 Free";
+    display: inline-block;
+    font-weight: 900;
+    font-size: 0.6em;
+}
+
+.form-row {
+    display: flex;
+    gap: 4rem;
+}
+
+.form-control {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    input {
+        height: 2.2rem;
+        width: clamp(200px, 30vw, 300px);
+        border: 1px solid var(--clr-lightgray);
+        border-radius: 4px;
+        font-size: 0.9rem;
+        padding: 0.5rem;
+
+        &::placeholder {
+            font-size: 0.9rem;
+        }
     }
 }

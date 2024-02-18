@@ -176,6 +176,7 @@ label[for="confirm_password"]::after {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+    position: relative;
 
     input {
         height: 2.2rem;
@@ -189,9 +190,17 @@ label[for="confirm_password"]::after {
         }
 
         &:focus {
-            box-shadow: 2px 2px 6px rgb(0 0 0 / 15%);
+            box-shadow: 2px 2px 6px rgb(0 0 0 / 10%);
             outline: none;
         }
+    }
+
+    > .validate {
+        position: absolute;
+        font-size: 0.7rem;
+        color: var(--clr-primary);
+        font-weight: 500;
+        bottom: -1rem;
     }
 }
 

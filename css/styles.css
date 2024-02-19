@@ -103,10 +103,6 @@ button {
             margin-top: 2rem;
         }
 
-        .form-row + .form-submit {
-            margin-top: 4rem;
-        }
-
         label {
             position: relative;
             color: var(--clr-dark);
@@ -151,7 +147,10 @@ label[for="confirm_password"]::after {
 }
 
 .form-submit {
+    display: flex;
+    margin-top: 2rem;
     flex-direction: column;
+    flex-basis: clamp(200px, 30vw, 300px);
     gap: 1rem;
 
     .login {
@@ -241,9 +240,13 @@ button.sign-up {
     }
 }
 
-.form-row.password-validation {
+.password-validation {
+    display: flex;
     flex-direction: column;
     gap: 0.2rem;
+    transform: scale(0);
+    transform-origin: top left;
+    transition: transform 300ms;
 
     .pwd-rule {
         width: max-content;

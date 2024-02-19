@@ -2,6 +2,7 @@ const firstName = document.querySelector("#first_name");
 const email = document.querySelector("#email");
 const password = document.querySelector("#password");
 const confirmPassword = document.querySelector("#confirm_password");
+const pwdValidationBlock = document.querySelector(".password-validation");
 
 const firstNameValidation = document.querySelector("#first_name~.validate");
 const emailValidation = document.querySelector("#email~.validate");
@@ -93,6 +94,14 @@ formSubmit.addEventListener("click", (event) => {
     ) {
         event.preventDefault();
     }
+});
+
+password.addEventListener("focus", () => {
+    pwdValidationBlock.style.transform = "scale(1)";
+});
+
+password.addEventListener("blur", () => {
+    pwdValidationBlock.style.transform = "scale(0)";
 });
 
 password.addEventListener("input", () => {

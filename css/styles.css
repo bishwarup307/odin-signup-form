@@ -195,6 +195,11 @@ label[for="confirm_password"]::after {
         }
     }
 
+    input[type="password"] {
+        letter-spacing: 0.1em;
+        font-size: 1rem;
+    }
+
     > .validate {
         position: absolute;
         font-size: 0.7rem;
@@ -233,5 +238,40 @@ button.sign-up {
         transform: rotate(0deg);
         transform: scale(2);
         transform: translateX(5px);
+    }
+}
+
+.form-row.password-validation {
+    flex-direction: column;
+    gap: 0.2rem;
+
+    .pwd-rule {
+        width: max-content;
+        font-size: 0.6rem;
+        font-weight: 500;
+        color: #868686;
+        background-color: #fafafa;
+        padding: 0.1rem 1.5rem 0.1rem 0.5rem;
+        border: 1px solid #e7e7e7;
+        border-radius: 50vw;
+
+        &.valid {
+            background-color: rgb(235, 255, 234);
+            color: rgb(1, 133, 67);
+            border-color: rgb(1, 133, 67);
+            position: relative;
+            font-weight: 500;
+
+            &::after {
+                position: absolute;
+                right: 8px;
+                top: 3px;
+                content: "\f00c";
+                font-family: "Font Awesome 5 Free";
+                display: inline-block;
+                font-weight: 900;
+                transform: scale(1.2);
+            }
+        }
     }
 }

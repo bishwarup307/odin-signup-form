@@ -61,6 +61,7 @@
                             <input type="tel" name="phone" id="phone">
                         </div>
                     </div>
+
                     <div class="form-row">
                         <div class="form-control">
                             <label for="password">Password</label>
@@ -72,6 +73,31 @@
                             <input type="password" name="confirm_password" id="confirm_password">
                         </div>
                     </div>
+
+                    <div class="form-row password-validation">
+                        <div class="pwd-rule" id="pwd-len">
+                            8 to 20 characters long
+                        </div>
+                        <div class="pwd-rule" id="pwd-upper-case">
+                            Contains (at least) an upper-case letter
+                        </div>
+                        <div class="pwd-rule" id="pwd-lower-case">
+                            Contains (at least) a lower-case letter
+                        </div>
+                        <div class="pwd-rule" id="pwd-number">
+                            Contains (at least) one number
+                        </div>
+                        <div class="pwd-rule" id="pwd-special-char">
+                            Contains (at least) one special characters from #, $, !, _, -, ., @
+                        </div>
+                        <div class="pwd-rule" id="pwd-startswith">
+                            Starts with an alphanumeric character
+                        </div>
+                        <div class="pwd-rule" id="pwd-allvalid">
+                            Contains only valid characters mentioned above
+                        </div>
+                    </div>
+
                     <div class="form-row form-submit">
                         <button type="submit" class="sign-up">Sign Up</button>
                         <div class="login">

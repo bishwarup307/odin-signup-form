@@ -7,6 +7,14 @@ const firstNameValidation = document.querySelector("#first_name~.validate");
 const emailValidation = document.querySelector("#email~.validate");
 const passwordValidation = document.querySelector("#password~.validate");
 
+const pwdLength = document.querySelector("#pwd-len");
+const pwdUpperCase = document.querySelector("#pwd-upper-case");
+const pwdLowerCase = document.querySelector("#pwd-lower-case");
+const pwdNumber = document.querySelector("#pwd-number");
+const pwdSpecialChar = document.querySelector("#pwd-special-char");
+const pwdStartsWith = document.querySelector("#pwd-startswith");
+const pwdAllValid = document.querySelector("#pwd-allvalid");
+
 const formSubmit = document.querySelector("button.sign-up");
 
 const isValidFirstName = () => {
@@ -26,13 +34,45 @@ const isValidEmail = () => {
     return true;
 };
 
-const isValidPwdLength = () => {
-    console.log(password.value);
-    regexp = /(?=.{8,})/g;
-    if (password.value.match(regexp)) {
-        return true;
-    }
-    passwordValidation.textContent = "really?";
+const isValidLength = () => {
+    const regexp = /(?=.{8,20})/g;
+    if (password.value.match(regexp)) return true;
+    return false;
+};
+
+const hasNumber = () => {
+    const regexp = /(?=.*\d)/g;
+    if (password.value.match(regexp)) return true;
+    return false;
+};
+
+const hasUpperCase = () => {
+    const regexp = /(?=.*[A-Z])/g;
+    if (password.value.match(regexp)) return true;
+    return false;
+};
+
+const hasLowerCase = () => {
+    const regexp = /(?=.*[a-z])/g;
+    if (password.value.match(regexp)) return true;
+    return false;
+};
+
+const hasSpecialCharacter = () => {
+    const regexp = /(?=.*[$@!#^&.-_*])/g;
+    if (password.value.match(regexp)) return true;
+    return false;
+};
+
+const startsWithLetter = () => {
+    const regexp = /(?=^[\w])/g;
+    if (password.value.match(regexp)) return true;
+    return false;
+};
+
+const containsValidChars = () => {
+    const regexp = /[A-Za-z0-9$@!#^&.-_*]+$/g;
+    if (password.value.match(regexp)) return true;
     return false;
 };
 
@@ -53,4 +93,27 @@ formSubmit.addEventListener("click", (event) => {
     ) {
         event.preventDefault();
     }
+});
+
+password.addEventListener("input", () => {
+    if (isValidLength()) pwdLength.classList.add("valid");
+    else pwdLength.classList.remove("valid");
+
+    if (hasLowerCase()) pwdLowerCase.classList.add("valid");
+    else pwdLowerCase.classList.remove("valid");
+
+    if (hasUpperCase()) pwdUpperCase.classList.add("valid");
+    else pwdUpperCase.classList.remove("valid");
+
+    if (hasSpecialCharacter()) pwdSpecialChar.classList.add("valid");
+    else pwdSpecialChar.classList.remove("valid");
+
+    if (hasNumber()) pwdNumber.classList.add("valid");
+    else pwdNumber.classList.remove("valid");
+
+    if (startsWithLetter()) pwdStartsWith.classList.add("valid");
+    else pwdStartsWith.classList.remove("valid");
+
+    if (containsValidChars()) pwdAllValid.classList.add("valid");
+    else pwdAllValid.classList.remove("valid");
 });

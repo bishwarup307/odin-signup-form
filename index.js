@@ -15,6 +15,7 @@ const pwdNumber = document.querySelector("#pwd-number");
 const pwdSpecialChar = document.querySelector("#pwd-special-char");
 const pwdStartsWith = document.querySelector("#pwd-startswith");
 const pwdAllValid = document.querySelector("#pwd-allvalid");
+let pwdRules = [];
 
 const formSubmit = document.querySelector("button.sign-up");
 
@@ -85,8 +86,28 @@ const isPasswordMatch = () => {
     return true;
 };
 
+const isPasswordRuleSatisfied = () => {
+    let pwdStatus =
+        isValidLength() &&
+        hasLowerCase() &&
+        hasUpperCase() &&
+        hasNumber() &&
+        hasSpecialCharacter() &&
+        startsWithLetter() &&
+        containsValidChars();
+    if (!pwdStatus) {
+        passwordValidation.textContent = "Password condition(s) not met";
+    }
+    return pwdStatus;
+};
+
 formSubmit.addEventListener("click", (event) => {
-    if (!isValidFirstName() || !isValidEmail() || !isPasswordMatch()) {
+    if (
+        !isValidFirstName() ||
+        !isValidEmail() ||
+        !isPasswordRuleSatisfied() ||
+        !isPasswordMatch()
+    ) {
         event.preventDefault();
     }
 });
@@ -100,8 +121,9 @@ password.addEventListener("blur", () => {
 });
 
 password.addEventListener("input", () => {
-    if (isValidLength()) pwdLength.classList.add("valid");
-    else pwdLength.classList.remove("valid");
+    if (isValidLength()) {
+        pwdLength.classList.add("valid");
+    } else pwdLength.classList.remove("valid");
 
     if (hasLowerCase()) pwdLowerCase.classList.add("valid");
     else pwdLowerCase.classList.remove("valid");

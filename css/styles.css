@@ -248,6 +248,21 @@ button.sign-up {
     transform-origin: top left;
     transition: transform 300ms;
 
+    .pwd-rule-header {
+        font-size: 0.7rem;
+        color: rgb(20 41 65 / 80%);
+        font-weight: 500;
+        margin-left: 6px;
+        margin-bottom: 4px;
+
+        &::after {
+            content: "\f023";
+            font-family: "Font Awesome 5 Free";
+            display: inline-block;
+            font-weight: 900;
+        }
+    }
+
     .pwd-rule {
         width: max-content;
         font-size: 0.6rem;
@@ -264,12 +279,13 @@ button.sign-up {
             border-color: rgb(1, 133, 67);
             position: relative;
             font-weight: 500;
+            transition: all 100ms ease-out;
 
             &::after {
                 position: absolute;
-                right: 8px;
+                right: 4px;
                 top: 3px;
-                content: "\f00c";
+                content: "\f058";
                 font-family: "Font Awesome 5 Free";
                 display: inline-block;
                 font-weight: 900;

@@ -60,7 +60,7 @@ const hasLowerCase = () => {
 };
 
 const hasSpecialCharacter = () => {
-    const regexp = /(?=.*[$@!#^&.-_*])/g;
+    const regexp = /(?=.*[$@!#^&.\-*\[\]\{\}]).*/g;
     if (password.value.match(regexp)) return true;
     return false;
 };
@@ -72,7 +72,7 @@ const startsWithLetter = () => {
 };
 
 const containsValidChars = () => {
-    const regexp = /[A-Za-z0-9$@!#^&.-_*]+$/g;
+    const regexp = /[A-Za-z0-9$@!#^&.\-*\[\]\{\}]+$/g;
     if (password.value.match(regexp)) return true;
     return false;
 };
@@ -86,12 +86,7 @@ const isPasswordMatch = () => {
 };
 
 formSubmit.addEventListener("click", (event) => {
-    if (
-        !isValidFirstName() ||
-        !isValidEmail() ||
-        !isValidPwdLength() ||
-        !isPasswordMatch()
-    ) {
+    if (!isValidFirstName() || !isValidEmail() || !isPasswordMatch()) {
         event.preventDefault();
     }
 });

@@ -22,6 +22,7 @@ const formSubmit = document.querySelector("button.sign-up");
 const isValidFirstName = () => {
     if (!firstName.value) {
         firstNameValidation.textContent = "First name is required";
+        firstName.focus();
         return false;
     }
     return true;
@@ -31,6 +32,7 @@ const isValidEmail = () => {
     const regexp = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
     if (!email.value.match(regexp)) {
         emailValidation.textContent = "Please specify a valid email address";
+        email.focus();
         return false;
     }
     return true;
@@ -81,6 +83,7 @@ const containsValidChars = () => {
 const isPasswordMatch = () => {
     if (password.value !== confirmPassword.value) {
         passwordValidation.textContent = "Passwords do not match";
+        confirmPassword.focus();
         return false;
     }
     return true;
@@ -97,6 +100,7 @@ const isPasswordRuleSatisfied = () => {
         containsValidChars();
     if (!pwdStatus) {
         passwordValidation.textContent = "Password condition(s) not met";
+        password.focus();
     }
     return pwdStatus;
 };
@@ -142,4 +146,16 @@ password.addEventListener("input", () => {
 
     if (containsValidChars()) pwdAllValid.classList.add("valid");
     else pwdAllValid.classList.remove("valid");
+});
+
+firstName.addEventListener("change", () => {
+    firstNameValidation.textContent = "";
+});
+
+email.addEventListener("change", () => {
+    emailValidation.textContent = "";
+});
+
+password.addEventListener("change", () => {
+    passwordValidation.textContent = "";
 });

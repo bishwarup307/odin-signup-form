@@ -5,4 +5,4 @@
 # Odin Sign-up Form 🔥
 
 ## Live Demo
-[Try it out 🚀](https://bishwarup307.github.io/odin-singup-form)
+[Try it out 🚀](https://bishwarup307.github.io/odin-signup-form)

@@ -32,7 +32,8 @@ button {
 }
 
 .container-left {
-    flex-basis: 40vw;
+    height: 100%;
+    flex-basis: 35vw;
     background: url("../assets/images/background.jpeg"),
         linear-gradient(to bottom, #000, #fefefe);
     background-position: center center;
@@ -40,11 +41,12 @@ button {
 
     display: flex;
     justify-content: center;
+
+    overflow: hidden;
 }
 
 .logo-container {
     height: 240px;
-    /* background: rgb(10 10 10 / 30%); */
     width: 240px;
     border-radius: 50%;
     margin-top: 180px;
@@ -59,7 +61,17 @@ button {
 
     & > img {
         /* transform: translateY(-5px); */
-        height: 250px;
+        width: min(35vh, 350px);
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .logo-container {
+        margin-top: 50px;
     }
 }
 
@@ -79,15 +91,17 @@ button {
         display: flex;
         flex-direction: column;
         justify-content: center;
+        box-shadow: 0px 2px 10px rgb(0 0 0 / 7%);
 
         & .form-header__text {
-            font-size: 1.5rem;
+            font-size: clamp(1.2rem, 1.5rem, 2vw);
             font-weight: 300;
             letter-spacing: 0.02em;
-            line-height: 2rem;
+            /* line-height: 2rem; */
             color: var(--clr-dark);
             padding-top: 100px;
-            margin-right: max(80px, 10vw);
+            /* margin-right: max(80px, 10vw); */
+            width: max(50ch, 20vw);
 
             & > :last-child {
                 margin-top: 20px;
